@@ -63,6 +63,4 @@
           .then(data => slug.value = data.slug)
       });
     </script>
-    
-
 @endsection
