@@ -31,7 +31,11 @@
           <td>
             <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
             <a href="/dashboard/posts/" class="badge bg-warning"><i class="bi bi-pencil"></i></a>
-            <a href="/dashboard/posts/" class="badge bg-danger"><i class="bi bi-x-circle"></i></a>
+            <form action="/dashboard/posts/" method="post">
+              @method('delete')
+              @csrf
+              <button class="badge bg-danger"><i class="bi bi-x-circle"></i></button>
+            </form>
           </td>
         </tr>
         @endforeach
