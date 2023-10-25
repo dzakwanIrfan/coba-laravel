@@ -17,7 +17,13 @@
                         <button class="btn btn-danger fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" onclick="return confirm('Are you sure?');"><i class="bi bi-trash3"></i> Delete</button>
                     </form>
 
-                    <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                    @if ($post->image)
+                        <div class="div" style="max-height: 400px; overflow: hidden">
+                            <img src="{{ asset('storage/'. $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                        </div>
+                    @else
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                    @endif
 
                     <article class="my-3" >
                         {!! $post->body !!}
