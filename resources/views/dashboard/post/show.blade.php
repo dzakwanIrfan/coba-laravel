@@ -10,8 +10,12 @@
                     <h2>{{ $post->title }}</h2>
                     
                     <a href="/dashboard/posts" class="btn btn-dark fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-arrow-left"></i> Back to My Posts</a>
-                    <a href="" class="btn btn-warning fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-pencil"></i> Edit</a>
-                    <a href="" class="btn btn-danger fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-trash3"></i> Delete</a>
+                    <a href="/dashboard/posts/{{ post->slug }}/edit" class="btn btn-warning fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-pencil"></i> Edit</a>
+                    <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-danger fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" onclick="return confirm('Are you sure?');"><i class="bi bi-trash3"></i> Delete</button>
+                    </form>
 
                     <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
 
