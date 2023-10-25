@@ -10,7 +10,7 @@
                     <h2>{{ $post->title }}</h2>
                     
                     <a href="/dashboard/posts" class="btn btn-dark fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-arrow-left"></i> Back to My Posts</a>
-                    <a href="/dashboard/posts/{{ post->slug }}/edit" class="btn btn-warning fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-pencil"></i> Edit</a>
+                    <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning fs-6 icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"><i class="bi bi-pencil"></i> Edit</a>
                     <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
